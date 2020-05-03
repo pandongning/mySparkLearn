@@ -6,7 +6,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 object WordCount {
   def main(args: Array[String]): Unit = {
     System.setProperty("hadoop.home.dir", "C:\\Users\\pdn\\mySoft\\hadoop-2.7.2")
-    val sparkConf: SparkConf = new SparkConf().setAppName("pdnLocalWordCount").setMaster("yarn")
+    val sparkConf: SparkConf = new SparkConf().setAppName("pdnLocalWordCount").setMaster("local[*]")
     val sc: SparkContext = new SparkContext(sparkConf)
     val lines: RDD[String] = sc.textFile("/root/input")
 
@@ -19,5 +19,8 @@ object WordCount {
     //    reduceByKey表示将key相同的，对应的value值相加。
     val wordSum: RDD[(String, Int)] = wordTuple.reduceByKey(_ + _)
     wordSum.foreach(println(_))
+
+
+    sc.stop()
   }
 }

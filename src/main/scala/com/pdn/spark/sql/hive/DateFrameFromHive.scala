@@ -18,7 +18,7 @@ object DateFrameFromHive {
 //      .config("spark.sql.warehouse.dir", warehouseLocation)
       .enableHiveSupport().getOrCreate()
 
-    spark.sql("select * from stu").show()
+    spark.sql("select * from person").show()
 
     spark.stop()
   }

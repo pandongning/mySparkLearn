@@ -37,9 +37,5 @@
 		<name>dfs.webhdfs.enabled</name>
 		<value>true</value>
 	</property>
-	<property>
-	  <name>hive.execution.engine</name>
-	  <value>tez</value>
-	</property>
 
 </configuration>

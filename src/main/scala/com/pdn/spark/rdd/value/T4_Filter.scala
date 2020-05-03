@@ -6,6 +6,7 @@ import org.apache.spark.rdd.RDD
 object T4_Filter {
   def main(args: Array[String]): Unit = {
     System.setProperty("hadoop.home.dir", "C:\\Users\\pdn\\mySoft\\hadoop-2.7.2")
+    System.setProperty("HADOOP_USER_NAME", "root");
     val conf: SparkConf = new SparkConf().setAppName("value").setMaster("local[*]")
     conf.set("spark.default.parallelism", "24")
     val sc: SparkContext = new SparkContext(conf)
@@ -17,6 +18,8 @@ object T4_Filter {
     }.foreach(
       println
     )
+
+    value.saveAsTextFile("hdfs://LocalOne:9000/spark/RddOut/two")
 
     sc.stop()
   }

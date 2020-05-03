@@ -13,9 +13,11 @@ object josn {
 
     val session: SparkSession = SparkSession.builder().master("local[*]").appName("json").getOrCreate()
 
+    val path: String = getClass.getClassLoader.getResource("person.json").getPath
+
     import session.implicits._
 
-    session.read.json("/input/person.json").write.parquet("/out/parquet")
+    session.read.option("primitivesAsString",value = true).json(path).write.parquet("/out/parquet")
 
     val frame: DataFrame = session.read.parquet("/out/parquet")
 

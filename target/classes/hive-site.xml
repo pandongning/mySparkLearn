@@ -2,9 +2,21 @@
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 
 <configuration>
+	 <property>
+		<name>hive.exec.scratchdir</name>
+		<value>/user/hive2.3/tmp</value>
+	</property>
+	<property>
+		<name>hive.metastore.warehouse.dir</name>
+		<value>/user/hive2.3/warehouse</value>
+	</property>
+	<property>
+		<name>hive.querylog.location</name>
+		<value>/user/hive2.3/log</value>
+	</property>
     <property>
         <name>javax.jdo.option.ConnectionURL</name>
-        <value>jdbc:mysql://192.168.28.200:3306/hiveMetastore?createDatabaseIfNotExist=true</value>
+        <value>jdbc:mysql://192.168.28.201:3306/hiveMetastore?createDatabaseIfNotExist=true</value>
         <description>JDBC connect string for a JDBC metastore</description>
     </property>
 
@@ -34,11 +46,23 @@
         <name>hive.cli.print.current.db</name>
         <value>true</value>
     </property>
+    <property>
+	<name>hive.exec.mode.local.auto</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>set hive.exec.parallel</name>
+        <value>true</value>
+    </property>
+    <property>
+      <name>hive.mapred.mode</name>
+      <value>nostrict</value>
+    </property>
+    <property>
+      <name>mapreduce.job.jvm.numtasks</name>
+      <value>4</value>
+   </property>	
 
-<!--    <property>-->
-<!--        <name>hive.execution.engine</name>-->
-<!--        <value>tez</value>-->
-<!--    </property>-->
 
 </configuration>
 

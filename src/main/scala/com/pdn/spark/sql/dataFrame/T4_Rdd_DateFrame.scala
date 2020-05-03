@@ -24,12 +24,13 @@ object T4_Rdd_DateFrame {
     //
     val rdd: RDD[Row] = df.rdd
 
-    rdd.map { row =>
+    rdd.map { row: Row =>
       row.getLong(0)
     }.foreach(println)
 
     val value: RDD[Student] = spark.sparkContext.parallelize(List(Student("aa", 23), Student("bb", 24)))
     val dataFrame: DataFrame = value.toDF()
+
     dataFrame.createOrReplaceTempView("stu")
     spark.sql("select * from stu").show()
 

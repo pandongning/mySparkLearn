@@ -12,6 +12,8 @@ object T3_ReduceByKey {
     val sparkConf: SparkConf = new SparkConf().setAppName("MakeRdd").setMaster("local[*]")
     val sc: SparkContext = new SparkContext(sparkConf)
 
+
+
     val soure: RDD[(Int, String)] = sc.parallelize(Array((1, "aaa"), (2, "bbb"), (2, "ccc"), (4, "ddd")), 3)
 
     //    int是key的类型，string是key相同的元素最后累加的结果
@@ -21,6 +23,8 @@ object T3_ReduceByKey {
     }
 
     rs.foreach(println)
+
+
 
     sc.stop()
   }
