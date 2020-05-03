@@ -17,13 +17,16 @@ object T5_Join {
 
     val value: RDD[(String, (Int, String))] = valueOne.join(valueTwo)
 
-//    join的时候可以使用广播变量，提高效率
-    val valueOneBroadcast: Broadcast[RDD[(String, String)]] = sc.broadcast(valueTwo)
-    valueOne.join(valueOneBroadcast.value)
+    //    join的时候可以使用广播变量，提高效率
+    val valueOneBroadcast: Broadcast[Array[(String, String)]] = sc.broadcast(valueTwo.collect())
+    val res: RDD[(String, (Int, String))] = valueOne.join(sc.parallelize(valueOneBroadcast.value))
+
+    res.foreach(x => println(x._1 + "\t" + x._2))
 
     value.foreach(println)
 
-    value.saveAsTextFile("/outTwo")
+
+    //    value.saveAsTextFile("/outTwo")
 
     sc.stop()
   }
