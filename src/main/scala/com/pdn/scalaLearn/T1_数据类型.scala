@@ -27,5 +27,7 @@ object T1_数据类型 {
     println(strings)
 
     println(s"f1=$f1,f4=$f4,f5=$f5")
+
+    println("helllo word".apply(6))
   }
 }

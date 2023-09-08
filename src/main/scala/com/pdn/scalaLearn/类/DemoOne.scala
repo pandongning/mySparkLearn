@@ -5,11 +5,28 @@ object DemoOne {
 
   def main(args: Array[String]): Unit = {
 
-    val person: PersonTest = new PersonTest("pp", "man")
-    println(person.toString)
+    //    val person: PersonTest = new PersonTest("pp", "man")
+    //    println(person.toString)
 
+    var student = new StudentTwo("aa", "man")
+    student.age = 20
+    val myName = student.sayName()
+    println(student.age + "\t" + myName + "\t" + student.sex)
 
   }
+}
+
+//由于name参数没加var或者val修饰，所以name只是一个构造函数的参数，如果要获得，则必须使用下面的sayName
+//sex被var修饰，则sex可以直接被认为是类的一个字段
+//address被val修饰，则必须赋予值
+class StudentTwo(name: String, var sex: String) {
+  var age: Int = _
+  val address: String = "213"
+
+  def sayName(): String = {
+    name
+  }
+
 }
 
 class PersonTest(hobbby: String) {

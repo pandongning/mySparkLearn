@@ -5,6 +5,8 @@ import scala.collection.mutable.ArrayBuffer
 
 object T9_Array {
 
+
+
   def main(args: Array[String]): Unit = {
 
     val strings: Array[String] = new Array[String](3)
