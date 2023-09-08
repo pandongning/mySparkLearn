@@ -23,6 +23,7 @@ class StudentTwo(name: String, var sex: String) {
   var age: Int = _
   val address: String = "213"
 
+
   def sayName(): String = {
     name
   }
@@ -35,6 +36,7 @@ class PersonTest(hobbby: String) {
   protected var age: Int = 23
   var sex: String = "man"
   val height: Int = 186
+//  https://blog.csdn.net/dingyufei615/article/details/106769187/ 这个文档学习
   private[this] var address: String = "xunyi"
 
   def this(hobbby: String, name: String) {

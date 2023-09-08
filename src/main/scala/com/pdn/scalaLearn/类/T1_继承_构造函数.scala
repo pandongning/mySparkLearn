@@ -39,12 +39,15 @@ class A {
 class B extends A("pdn", 23) {
 }
 
+
+//C def this(name: String)
+class C extends A("pp") {
+}
+
+
 //D调用A的辅助构造函数def this(name: String, age: Int)
 //创建D的时候再赋予A辅助构造函数的值，这样则能做到每次根据不同的需求，赋予不同的值
 class D(name: String, age: Int) extends A(name, age){
 }
 
-//C def this(name: String)
-class C extends A("pp") {
-}
 
